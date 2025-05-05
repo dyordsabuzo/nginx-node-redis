@@ -14,6 +14,13 @@ services:
     build: ./nginx
     ports:
     - '80:80'
+    - '88:88'
     depends_on:
+    - dozzle
     - web1
     - web2
+  dozzle:
+    image: amir20/dozzle:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
